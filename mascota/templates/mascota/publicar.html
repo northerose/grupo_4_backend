@@ -1,0 +1,135 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+{{form.errors}}
+
+    <section class="publicar">
+        <section class="form_img">
+            <h1>Datos de la mascota</h1>
+            <img src="{% static 'img/mascotas.jpg' %}">
+        </section>
+
+        <form class="form_info" method="post" enctype="multipart/form-data"> {% csrf_token %}
+            <div class="tipo_mascota">
+                <p>Seleccione el tipo de mascota: </p>
+                <input type="radio" id="rb1" name="tipo" value="p" >
+                <label for="rb1">
+                    Perro
+                </label>
+                <input type="radio" id="rb2" name="tipo" value="g">
+                <label for="rb2">
+                    Gato
+                </label>
+            </div>
+
+            <div class="sexo">
+                <p>Seleccione el sexo de la mascota: </p>
+                <input type="radio" id="rb3" name="sexo" value="h">
+                <label for="rb3">
+                    Hembra
+                </label>
+                <input type="radio" id="rb4" name="sexo" value="m">
+                <label for="rb4">
+                    Macho
+                </label>
+            </div>
+
+            <div>
+                <label for="edad">Fecha de nacimiento aproximada: </label>
+                <input type="date" name="fecha_nacimiento" id="edad"  class="form-control"> 
+            </div>
+            
+            <div>
+                <label for="tamano_final">Seleccione el tamaño final de la mascota: </label>
+                <select name="tamano_final" id="tamano"  class="form-control">
+                    <option value="">Seleccione el tamaño final de la mascota</option>
+                    <option value="p">Pequeño</option>
+                    <option value="m">Mediano</option>
+                    <option value="g">Grande</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="nm">
+                    Nombre de la Mascota: 
+                </label>
+                <input type="text" id="nm" name="nombre" placeholder="Introduzca el nombre de la mascota"  class="form-control">
+            </div>
+
+            <div>
+                <label for="responsable"> Responsable: </label>
+                <input type="text" name="responsable" id="responsable" placeholder="Introduzca el nombre del responsable"  class="form-control">
+            </div>
+            
+            <div>
+                <label for="telefono"> Telf.:</label>
+                <input type="tel" id="telefono" name="telefono" placeholder="Introduzca el teléfono del responsable"  class="form-control">
+            </div>
+            
+            <div class="ubicacion">
+                <label for="ubicacion" id="etiqueta"> Ubicación: </label>
+                <input type="text" id="ubicacion" placeholder="Introduzca la ciudad"  name="ubicacion"  class="form-control">
+                <select name="provincia" id="provincia" class="form-control">
+                    <option value="">Seleccione la Provincia</option>
+                    <option value="Buenos Aires">Buenos Aires </option>
+                    <option value="Ciudad autónoma de Buenos Aires">Ciudad Autónoma de Buenos Aires</option>
+                    <option value="Catamarca">Catamarca</option>
+                    <option value="Chaco">Chaco</option>
+                    <option value="Chubut">Chubut</option>
+                    <option value="Córdoba">Córdoba</option>
+                    <option value="Corrientes">Corrientes</option>
+                    <option value="Entre Ríos">Entre Ríos</option>
+                    <option value="Formosa">Formosa</option>
+                    <option value="Jujuy">Jujuy</option>
+                    <option value="La Pampa">La Pampa</option>
+                    <option value="La Rioja">La Rioja</option>
+                    <option value="Mendoza">Mendoza</option>
+                    <option value="Misiones">Misiones</option>
+                    <option value="Neuquén">Neuquén</option>
+                    <option value="Río Negro">Río Negro</option>
+                    <option value= "Salta">Salta</option>
+                    <option value="San Juan">San juan</option>
+                    <option value="San Luis">San Luis</option>
+                    <option value="Santa Cruz">Santa Cruz</option>
+                    <option value="Santa Fe">Santa Fe</option>
+                    <option value="Santiago del Estero">Santiago del Estero</option>
+                    <option value="tierra del Fuego">Tierra del Fuego</option>
+                    <option value="Tucumán">Tucumán</option>
+                </select>
+            </div>
+
+            <div class="descripcion">
+                <label for="descripcion">Descripción: </label>
+                <textarea placeholder="Introduzca la descripción de la mascota" name="descripcion"  class="form-control"></textarea>
+            </div>
+
+            <div>
+                <label for="foto">Seleccione una foto de la mascota: </label>
+                <input type="file" id="foto" name="foto" class="form-control">
+            </div>
+
+            <div class="datos">
+                <input type="checkbox" id="cb1" name="desparasitado" value="desparasitado" >
+                <label for="cb1">
+                    Desparasitado
+                </label>
+                <input type="checkbox" id="cb2" name="vacunado" value="vacunado" >
+                <label for="cb2">
+                    Vacunado
+                </label>
+                <input type="checkbox" id="cb3" name="castrado" value="castrado" >
+                <label for="cb3">
+                    castrado
+                </label>
+                
+            </div>
+            
+            <div class="boton_enviar">
+                <button type="submit" name="boton_enviar">Enviar</button>
+            </div>
+
+        </form>
+    </section>
+{% endblock %}

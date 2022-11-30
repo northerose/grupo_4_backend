@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+    <div class="centrado">
+        <section class="cards">
+
+            {% for mascota in mascotas %}
+            <article class="tarjeta_adop">
+                <a href="/detalle/{{mascota.id}}">
+                    <figure class="thumbnail">
+                        <img src="{{mascota.foto.url}}" alt="mascota">
+                    </figure>
+                    <div class="tarjeta-contenido">
+                        <h2>{{mascota.nombre}}</h2>
+                        <p>{{mascota.descripcion}}!</p>
+                    </div>
+                </a>
+            </article>
+            {% endfor %}
+        </section>
+    </div>
+{% endblock %}

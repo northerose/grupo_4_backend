@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+    <section>
+        <div class ="detalle"> 
+            <img src="{{mascota.foto.url}}">
+            <table cellspacing="15px">
+                <th colspan="2">¡Hola!, Mi nombre es {{mascota.nombre}}</th>
+                <tbody class="informacion">
+                    <tr>
+                        <td><b>Sexo:</b></td>
+                        <td>{{mascota.get_sexo_display}}</td>
+                    </tr>
+                    <tr>
+                        <td><b>Edad:</b></td>
+                        <td>{{mascota.fecha_nacimiento}}</td>
+                    </tr>
+                    <tr>
+                        <td><b>Tamaño final:</b></td>
+                        <td>{{mascota.get_tamano_final_display}}</td>
+                    </tr>
+                    <tr>
+                        <td><b>Responsable:</b></td>
+                        <td>{{mascota.responsable}}</td>
+                    </tr>
+                    <tr>
+                        <td><b>Telf.:</b></td>
+                        <td>{{mascota.telefono}}</td>
+                    </tr>
+                    <tr>
+                        <td><b>Ubicación:</b></td>
+                        <td>{{mascota.ubicacion}}</td>
+                    </tr>
+                    <tr>
+                        <td><b>Descripción:</b></td>
+                        <td>{{mascota.descripcion}}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <form class="checklist">
+                <label>
+                    <input type="checkbox" disabled="disabled" {% if mascota.desparasitado %} checked="checked"{% endif %}>Desparasitado 
+                    <input type="checkbox" disabled="disabled" {% if mascota.vacunado %} checked="checked"{% endif %}>Vacunado
+                    <input type="checkbox" disabled="disabled" {% if mascota.castrado %} checked="checked"{% endif %}>Castrado
+                </label>
+            </form>
+        </div>
+    </section>
+
+{% endblock %}
